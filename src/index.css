@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --color-mango: #FFB000;
+  --color-mango-ripe: #FF8A00;
+  --color-saffron: #F26A1B;
+  --color-midnight: #0E0E10;
+  --color-graphite: #1C1C21;
+  --color-cloud: #F7F7F5;
+  --color-leaf: #6BAF3A;
+  --color-mango-faint: #FFF9EF;
+}
+
+/* =============================
+   Lenis smooth scroll
+   ============================= */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* =============================
+   Mobile: native smooth scroll
+   (Lenis is disabled on mobile)
+   ============================= */
+@media (max-width: 767px) {
+  html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* =============================
+   Global performance helpers
+   ============================= */
+
+/* Remove tap flash on mobile */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Hint the browser that fixed elements are on their own compositing layer */
+.fixed {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Hide scrollbars utility (used by carousel) */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* =============================
+   Reduced-motion accessibility
+   Also helps low-end devices
+   ============================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

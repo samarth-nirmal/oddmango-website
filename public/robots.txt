@@ -1,0 +1,8 @@
+# Robots.txt for Odd Mango Studio
+# https://oddman.go / https://odd-mango-media.com
+
+User-agent: *
+Allow: /
+
+# Sitemaps list
+Sitemap: https://oddman.go/sitemap.xml
