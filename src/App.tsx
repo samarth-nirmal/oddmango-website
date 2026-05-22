@@ -17,7 +17,7 @@ import { Badge } from './components/ui/badge'
 import { DynamicIslandTOC } from './components/ui/dynamic-island-toc';
 import { Annotation } from './components/ui/annotation';
 import { CustomCursor } from './components/ui/custom-cursor';
-import { cn } from './lib/utils';
+import { cn, asset } from './lib/utils';
 import { InteractiveCard } from './components/InteractiveCard';
 import { ImageShowcase } from './components/ui/image-showcase';
 import { LegalModal } from './components/LegalModal';
@@ -44,34 +44,38 @@ const SLIDES = [
     videoUrl: '/showcase/Shoecasev2.mp4',
   },
   {
-    id: 'slide-3',
-    title: 'Elysian Canopy',
-    client: 'Vesper Hotels',
-    description: 'An architectural documentary exploring contemporary layout paradigms set against dramatic forest peaks.',
-    services: ['cinematography', 'grading', 'vfx'],
-    type: 'Short Film',
-    imageUrl: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?q=80&w=800&auto=format&fit=crop',
-    videoUrl: '/showcase/Shoecasev3.mp4',
+    client: 'SynthWave Audio',
+    category: 'App / UI',
+    year: '2024',
+    videoUrl: asset('/showcase/Shoecasev2.mp4'),
+    color: '#F26A1B',
   },
   {
-    id: 'slide-4',
-    title: 'Void Architecture',
-    client: 'Apex Monoliths',
-    description: 'Monolithic physical installations interacting with reactive projection mappings and lighting loops.',
-    services: ['3d modeling', 'vfx', 'design'],
-    type: 'Exhibition',
-    imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop',
-    videoUrl: '/showcase/Shoecasev4.mp4',
+    id: 3,
+    title: 'Serene Space',
+    client: 'Mindful Retreats',
+    category: 'Web / Brand',
+    year: '2025',
+    videoUrl: asset('/showcase/Shoecasev3.mp4'),
+    color: '#6BAF3A',
   },
   {
-    id: 'slide-5',
-    title: 'Satori Flow',
-    client: 'Zenith Watches',
-    description: 'A close-up documentary showcasing microscopic gear engineering and physical handcrafted watchmaking loops.',
-    services: ['macro', 'vfx', '3d'],
-    type: 'Product Film',
-    imageUrl: 'https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=800&auto=format&fit=crop',
-    videoUrl: '/showcase/Showcasev5.mp4',
+    id: 4,
+    title: 'Velocity OS',
+    client: 'SpeedTech',
+    category: 'System / UI',
+    year: '2024',
+    videoUrl: asset('/showcase/Shoecasev4.mp4'),
+    color: '#FF8A00',
+  },
+  {
+    id: 5,
+    title: 'Quantum Learn',
+    client: 'EduFuture',
+    category: 'Platform / UX',
+    year: '2025',
+    videoUrl: asset('/showcase/Showcasev5.mp4'),
+    color: '#1C1C21',
   },
 ];
 
@@ -267,7 +271,7 @@ function FeaturedWorksSection({ containerRef, onPopupChange }: { containerRef: R
                     <CardHoverRevealMain className="rounded-none">
                       <div className="relative size-full overflow-hidden">
                         <video
-                          src={`${(slide as any).videoUrl}#t=0.5`}
+                          src={`${slide.videoUrl}#t=0.5`}
                           className="size-full object-cover transition-transform duration-500 group-hover:scale-110"
                           preload="metadata"
                           loop
@@ -325,7 +329,7 @@ function FeaturedWorksSection({ containerRef, onPopupChange }: { containerRef: R
             >
               <video
                 key={selectedProject.id}
-                src={(selectedProject as any).videoUrl}
+                src={selectedProject.videoUrl}
                 controls
                 playsInline
                 autoPlay={true}
@@ -793,13 +797,13 @@ const TEAM_MEMBERS = [
   {
     name: "Omkar Janvekar",
     role: "Founder",
-    image: "/founder1.jpg",
+    image: asset("/founder1.jpg"),
     bio: "Visionary behind the digital language of Odd Mango. Crafting narratives that resonate."
   },
   {
     name: "Raghvendra Joshi",
     role: "Founder",
-    image: "/founder2.jpeg",
+    image: asset("/founder2.jpeg"),
     bio: "Co-founder shaping narratives through story and visual art. Bringing meaning to content."
   }
 ];
@@ -962,7 +966,7 @@ export default function App() {
               {/* Logo Wrapper */}
               <div className="flex items-center justify-center">
                 <img 
-                  src="/mango-logo.png" 
+                  src={asset("/mango-logo.png")}
                   alt="Loading Logo" 
                   className="w-56 h-auto sm:w-72 md:w-[384px] lg:w-[420px] object-contain filter sepia-[100%] saturate-[1000%] hue-rotate-[15deg] brightness-[1.15] contrast-[1.2]" 
                 />
@@ -1027,7 +1031,7 @@ export default function App() {
               className="absolute inset-0 flex items-center justify-center pointer-events-none"
             >
               {/* To counteract the parent's scale shrink to 0.3, we can either InverseScale or just let it be responsive. At 0.3 scale, a 100% width logo turns into 30% width. Let's make it look like a nice centered card logo. */}
-              <img src="/mango-logo-orange.png" alt="Mango Logo" className="w-[60%] h-[60%] md:w-[40%] md:h-[40%] object-contain" />
+              <img src={asset("/mango-logo-orange.png")} alt="Mango Logo" className="w-[60%] h-[60%] md:w-[40%] md:h-[40%] object-contain" />
             </motion.div>
             
             {/* Grain Overlay — desktop only (mix-blend-overlay triggers compositing) */}
@@ -1049,7 +1053,7 @@ export default function App() {
           className="relative flex justify-between items-start text-midnight"
         >
           <div className="cursor-pointer hover:opacity-75 transition-opacity -ml-4 -mt-3 md:-ml-8 md:-mt-6 lg:-ml-12">
-            <img src="/mango-logo.png" alt="Mango Logo" className="h-20 sm:h-28 md:h-36 lg:h-40 object-contain" />
+            <img src={asset("/mango-logo.png")} alt="Mango Logo" className="h-20 sm:h-28 md:h-36 lg:h-40 object-contain" />
           </div>
           
           <div onClick={() => scrollTo('contact-us')} className="flex items-center gap-2 md:gap-3 cursor-pointer group hover:opacity-85 transition-opacity">
@@ -1179,7 +1183,7 @@ export default function App() {
           <div className="w-full px-6 py-12 bg-cloud">
             <div className="aspect-video w-full rounded-2xl overflow-hidden">
               <video
-                src="/showcase/Parallax%20Video.mp4"
+                src={asset("/showcase/Parallax%20Video.mp4")}
                 autoPlay
                 muted
                 loop
@@ -1195,7 +1199,7 @@ export default function App() {
         ) : (
           <ScrollExpandMedia
             mediaType="video"
-            mediaSrc="/showcase/Parallax%20Video.mp4"
+            mediaSrc={asset("/showcase/Parallax%20Video.mp4")}
             posterSrc="https://images.pexels.com/videos/5752729/space-earth-universe-cosmos-5752729.jpeg"
             bgImageSrc="https://me7aitdbxq.ufs.sh/f/2wsMIGDMQRdYMNjMlBUYHaeYpxduXPVNwf8mnFA61L7rkcoS"
             title="WHO ARE WE?"

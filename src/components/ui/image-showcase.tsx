@@ -3,15 +3,16 @@ import {
   ScrollXCarouselContainer,
   ContinuousScrollWrap
 } from "./scroll-x-carousel";
+import { asset } from "../../lib/utils";
 
 const EXISTING_IMAGES = [
-  '/showcase-images/33.png',
-  '/showcase-images/34.png',
-  '/showcase-images/35.png',
-  '/showcase-images/36.png',
-  '/showcase-images/37.png',
-  '/showcase-images/38.png',
-  '/showcase-images/43.png',
+  asset('/showcase-images/33.png'),
+  asset('/showcase-images/34.png'),
+  asset('/showcase-images/35.png'),
+  asset('/showcase-images/36.png'),
+  asset('/showcase-images/37.png'),
+  asset('/showcase-images/38.png'),
+  asset('/showcase-images/43.png'),
 ];
 
 // Repeat to ensure the marquee has enough images to loop infinitely without gaps
